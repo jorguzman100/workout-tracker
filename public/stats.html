@@ -1,43 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="style.css" />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-    <title>Fitness Chart</title>
-  </head>
-  <nav>
-    <a href="/">Fitness Tracker</a>
-  </nav>
-  <body>
-    <div class="container mt">
-      <h1 class="text-center">Workout Dashboard</h1>
-      <div class="row mt">
-        <div class="col-md-6">
-          <canvas id="canvas"></canvas>
-        </div>
-        <div class="col-md-6">
-          <canvas id="canvas2"></canvas>
-        </div>
-      </div>
-      <div class="row mt">
-        <div class="col-md-6">
-          <canvas id="canvas3"></canvas>
-        </div>
-        <div class="col-md-6">
-          <canvas id="canvas4"></canvas>
-        </div>
-      </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <script>
+    (function () {
+      try {
+        var savedTheme = localStorage.getItem("fitness-theme");
+        if (savedTheme) {
+          document.documentElement.setAttribute("data-theme", savedTheme);
+        }
+      } catch (error) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Fitness Dashboard</title>
+</head>
+
+<body>
+  <nav class="top-nav">
+    <a class="brand-link" href="/" aria-label="Fitness Tracker home">
+      <img class="brand-logo" src="/logo.svg" alt="" />
+      <span class="brand-name">Fitness Tracker</span>
+    </a>
+    <div class="nav-links">
+      <a class="nav-link" href="/exercise">Add Exercise</a>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-    <script src="/api.js"></script>
-    <script src="/stats.js"></script>
-  </body>
+    <button type="button" class="theme-toggle" data-theme-toggle aria-label="Toggle color mode"></button>
+  </nav>
+
+  <div class="wrapper dashboard">
+    <header>
+      <h1>Workout Dashboard</h1>
+    </header>
+    <section class="stats-grid">
+      <article class="chart-shell">
+        <h2>Workout Duration</h2>
+        <canvas id="canvas"></canvas>
+      </article>
+      <article class="chart-shell">
+        <h2>Pounds Lifted</h2>
+        <canvas id="canvas2"></canvas>
+      </article>
+      <article class="chart-shell">
+        <h2>Exercise Duration Split</h2>
+        <canvas id="canvas3"></canvas>
+      </article>
+      <article class="chart-shell">
+        <h2>Weight Split</h2>
+        <canvas id="canvas4"></canvas>
+      </article>
+    </section>
+  </div>
+
+  <script src="/theme.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <script src="/api.js"></script>
+  <script src="/stats.js"></script>
+</body>
+
 </html>

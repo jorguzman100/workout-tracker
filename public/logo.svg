@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="logoTitle logoDesc">
+  <title id="logoTitle">Fitness Tracker Logo</title>
+  <desc id="logoDesc">Rounded gradient badge with a stylized dumbbell and pulse line.</desc>
+  <defs>
+    <linearGradient id="bg" x1="16" y1="12" x2="112" y2="116" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7ca9ff"/>
+      <stop offset="1" stop-color="#46c5b7"/>
+    </linearGradient>
+  </defs>
+  <rect x="8" y="8" width="112" height="112" rx="30" fill="url(#bg)"/>
+  <circle cx="40" cy="64" r="14" fill="none" stroke="#ffffff" stroke-width="6"/>
+  <circle cx="88" cy="64" r="14" fill="none" stroke="#ffffff" stroke-width="6"/>
+  <rect x="46" y="60" width="36" height="8" rx="4" fill="#ffffff"/>
+  <path d="M30 71h11l7-14 8 16 7-11h16" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

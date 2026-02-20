@@ -1,8 +1,9 @@
 let mongoose = require("mongoose");
 let db = require("../models");
 
-mongoose.connect("mongodb://localhost/workout", {
+mongoose.connect("mongodb://127.0.0.1:27017/workout", {
   useNewUrlParser: true,
+  useUnifiedTopology: true,
   useFindAndModify: false
 });
 
@@ -135,10 +136,18 @@ let workoutSeed = [
   }
 ];
 
-db.Workout.deleteMany({})
-  .then(() => db.Workout.collection.insertMany(workoutSeed))
+db.Exercise.deleteMany({})
+  .then(() => db.Workout.deleteMany({}))
+  .then(() => Promise.all(workoutSeed.map(async workout => {
+    const exercises = await db.Exercise.insertMany(workout.exercises);
+    return {
+      day: workout.day,
+      exercises: exercises.map(exercise => exercise._id)
+    };
+  })))
+  .then(workouts => db.Workout.insertMany(workouts))
   .then(data => {
-    console.log(data.result.n + " records inserted!");
+    console.log(data.length + " workouts inserted!");
     process.exit(0);
   })
   .catch(err => {
