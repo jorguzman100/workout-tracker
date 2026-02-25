@@ -1,4 +1,4 @@
-# Workout Tracker
+# 🏃🏻 Workout Tracker
 
 ### Track workouts fast, stay consistent, and actually see your progress in a clean dashboard
 
