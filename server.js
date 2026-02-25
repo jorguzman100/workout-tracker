@@ -7,6 +7,10 @@ const MONGODB_URI = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/workou
 
 const app = express();
 
+function maskMongoUri(uri) {
+  return uri.replace(/\/\/([^:@/]+):([^@/]+)@/, "//$1:***@");
+}
+
 app.use(logger("dev"));
 
 app.use(express.urlencoded({ extended: true }));
@@ -20,13 +24,12 @@ mongoose.connect(MONGODB_URI, {
   useFindAndModify: false
 });
 mongoose.connection.on("connected", () => {
-  console.log(`MongoDB connected: ${MONGODB_URI}`);
+  console.log(`MongoDB connected: ${maskMongoUri(MONGODB_URI)}`);
 });
 mongoose.connection.on("error", err => {
   console.error("MongoDB connection error:", err.message);
 });
 
-// routes
 require("./routes/html-routes.js")(app);
 app.use(require("./routes/api-routes.js"));
 

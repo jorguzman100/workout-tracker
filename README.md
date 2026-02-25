@@ -1,116 +1,106 @@
-# Fitness Tracker
+# Workout Tracker
 
-The Fitness Tracker is a Full Stack Web Application which allow the user to register workouts and the related exercises. The app keeps relevant information like duration, weight, repetitions and distance, in order to display a useful dashboard to show the user's workouts progress.
+### Track workouts fast, stay consistent, and actually see your progress in a clean dashboard
 
-## Badges
+Workout Tracker is a full-stack fitness logging app for recording daily workouts and exercises with a simple flow. You can add cardio or resistance exercises, continue the latest workout, and review progress in charts without dealing with extra setup noise.
 
-Code quality and validation
+---
 
-[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/jorguzman100/17_Workout_Tracker.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/jorguzman100/17_Workout_Tracker/context:javascript)
-![shields.io](https://img.shields.io/github/languages/top/jorguzman100/17_Workout_Tracker)
-![shields.io](https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Fjorguzman100.github.io%2F17_Workout_Tracker%2F)
+## ✨ Features
 
-Repository Status
+| | Feature | What It Does |
+|---|---|---|
+| 📝 | Quick Workout Logging | Create a workout and add exercises in a few clicks with a beginner-friendly UI. |
+| 🏋️ | Cardio + Resistance Support | Tracks the right fields for each exercise type (sets/reps/weight or distance/duration). |
+| 🔁 | Continue Last Workout | Automatically resumes the latest workout so you can keep adding exercises. |
+| 📊 | Progress Dashboard | Chart.js visualizations show duration, weight totals, and exercise splits. |
+| 🌗 | Theme Toggle | Light/dark theme support with saved preference and chart refresh on theme change. |
+| 📱 | Responsive Frontend | Works across desktop and mobile layouts with a polished static frontend. |
 
-![shields.io](https://img.shields.io/badge/Repo%20Status-Finished-brightgreen)
-![shields.io](https://img.shields.io/bitbucket/issues/jorguzman100/17_Workout_Tracker)
+---
 
-License
+<p align="center">
+  <img
+    src="./public/fitness-tracker.webp"
+    alt="Workout Tracker dashboard and workout flow preview"
+    width="520"
+    style="border-radius: 12px; box-shadow: 0 10px 28px rgba(16, 24, 40, 0.18); object-position: top;"
+  />
+</p>
 
-![GitHub](https://img.shields.io/github/license/jorguzman100/17_Workout_Tracker)
+---
 
-## Table of contents
+## 🛠️ Tech Stack
 
-- [Fitness Tracker](#fitness-tracker)
-  - [Badges](#badges)
-  - [Table of contents](#table-of-contents)
-  - [The challenge](#the-challenge)
-  - [The development process](#the-development-process)
-  - [The Output](#the-output)
-  - [Installation and Usage](#installation-and-usage)
-  - [Credits, tools and other references](#credits-tools-and-other-references)
-  - [Contributing](#contributing)
-  - [Questions](#questions)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-f7df1e?style=flat-square&logo=javascript&logoColor=111)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white)
+![Express](https://img.shields.io/badge/Express-000000?style=flat-square&logo=express&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=flat-square&logo=mongodb&logoColor=white)
+![Mongoose](https://img.shields.io/badge/Mongoose-880000?style=flat-square&logo=mongoose&logoColor=white)
+![Chart.js](https://img.shields.io/badge/Chart.js-FF6384?style=flat-square&logo=chartdotjs&logoColor=white)
+![HTML5](https://img.shields.io/badge/HTML5-e34f26?style=flat-square&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572b6?style=flat-square&logo=css3&logoColor=white)
 
-## The challenge
+---
 
-From a provided front end code, the challenge is to create Mongo database with a Mongoose schema and handle routes with Express.
+## 🧩 Project Snapshot
 
-Main elements:
+- Express server serves the static frontend from `public/` and exposes REST endpoints for workout data.
+- MongoDB + Mongoose models: `Workout` stores workout dates and exercise references, `Exercise` stores exercise details.
+- API routes in `routes/api-routes.js` create workouts, append exercises, and return workout ranges for charts.
+- Frontend pages: home (`/`), exercise entry (`/exercise`), and dashboard (`/stats`) using vanilla JS.
+- Seeder script (`npm run seed`) populates sample workouts and exercises for local testing.
+- Deployment-ready basics are in place: `PORT` and `MONGODB_URI` environment variable support.
 
-- [x] MVC model application
-- [x] HTML, CSS, JS front end
-- [x] Chart.js Dashboard
-- [x] Mongo Database
-- [x] Mongoose Schema
-- [x] Express routing and server
+---
 
-## The development process
+## 🚀 Live Demo
 
-In order to accomplish the challenge, the following steps were done:
+![Deployment](https://img.shields.io/badge/Deployment-Not%20deployed%20yet-lightgrey?style=for-the-badge)
+[![GitHub](https://img.shields.io/badge/GitHub-Repo-181717?style=for-the-badge&logo=github)](https://github.com/jorguzman100/workout-tracker)
 
-1. Review the provided front end, its functionality and API requests.
-2. Research the Chart.js API
-3. Define the Mongoose models and schema.
-4. Build the server.
-5. Define the HTML and API routes.
-6. Final review and proper documentation.
+No public deployment yet. Local run is ready now, and the app is set up to use environment variables later for deployment.
 
-## The Output
+---
 
-With the described process we were able to create a useful, efficient, responsive, and engaging application.
+## 💻 Run it locally
 
-**User stories**
+```bash
+git clone https://github.com/jorguzman100/workout-tracker.git
+cd workout-tracker
+npm install
+cp .env_example .env # optional local reference file
+npm start
+```
 
-As a user, I want to be able to view create and track daily workouts. I want to be able to log multiple exercises in a workout on a given day. I should also be able to track the name, type, weight, sets, reps, and duration of exercise. If the exercise is a cardio exercise, I should be able to track my distance traveled.
+Optional: seed sample workout data
 
-**The application**
+```bash
+npm run seed
+```
 
-![Screenshot1](./assets/images/screenshot1.png)
-![Screenshot2](./assets/images/screenshot2.png)
-![Screenshot3](./assets/images/screenshot3.png)
-![Screenshot4](./assets/images/screenshot4.png)
-![Screenshot5](./assets/images/screenshot5.png)
+Local URL:
 
-## Installation and Usage
+- App + API: `http://localhost:3000`
 
-The project was uploaded to [GitHub](https://github.com/) at the following repository:
-[https://github.com/jorguzman100/17_Workout_Tracker](https://github.com/jorguzman100/17_Workout_Tracker)
+<details>
+<summary>🔑 Required environment variables</summary>
 
-You can access the deployed application with the Heroku link:
-[https://ancient-chamber-62452.herokuapp.com/](https://ancient-chamber-62452.herokuapp.com/)
+```env
+# .env (reference file for local setup)
+PORT=3000
+MONGODB_URI=mongodb://127.0.0.1:27017/workout
+```
 
-To install the project follow these steps:
+Notes:
 
-1. Clone the application from GitHub with:
-   - git clone [clone link from GitHub]
-2. From the root folder, install the dependencies with:
-   - npm install
-3. Run the app with:
-   - node server.js
+- No third-party API keys are required for this project.
+- The app reads environment variables from the runtime/deployment platform.
+- `.env_example` is included as a setup reference and starter file.
+</details>
 
-## Credits, tools and other references
+---
 
-**Third Party Assets**
+## 🤝 Contributors
 
-[Chart.js](https://www.chartjs.org/)
-
-[CSS Materialize](https://materializecss.com/)
-
-[Bootstrap](https://getbootstrap.com/)
-
-[Shields.io](https://shields.io/)
-
-[LGTM](https://lgtm.com/)
-
-[Markup Validation Service](https://validator.w3.org/)
-
-## Contributing
-
-- Pull requests are welcome.
-- For major changes, please open an issue first to discuss what you would like to change.
-- Please make sure to update tests as appropriate.
-
-## Questions
-
-If you have questions or you want to share comments, we will be glad to hear from you. Please contact us at jorguzman100@gmail.com.
+- **Jorge Guzman**  ·  [@jorguzman100](https://github.com/jorguzman100)

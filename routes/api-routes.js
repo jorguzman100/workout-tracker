@@ -1,6 +1,5 @@
 const router = require("express").Router();
 const mongoose = require("mongoose");
-// const Transaction = require("../models/transaction.js");
 
 const db = require("../models");
 
@@ -41,6 +40,7 @@ function toExerciseIdString(exerciseRef) {
 }
 
 async function fetchWorkoutsWithExercises() {
+    // Return workouts with full exercise objects so the frontend can read fields directly.
     const workouts = await db.Workout.find({})
         .sort({ day: 1 })
         .lean();
@@ -75,7 +75,6 @@ async function fetchWorkoutsWithExercises() {
     }));
 }
 
-// getLastWorkout() - GET
 router.get("/api/workouts", (req, res) => {
     fetchWorkoutsWithExercises()
         .then(dbWorkout => {
@@ -86,7 +85,6 @@ router.get("/api/workouts", (req, res) => {
         });
 });
 
-// addExercise() - PUT
 router.put("/api/workouts/:id", (req, res) => {
     db.Exercise.create(req.body)
         .then(({ _id }) => db.Workout.findOneAndUpdate(
@@ -105,7 +103,6 @@ router.put("/api/workouts/:id", (req, res) => {
         });
 });
 
-// createWorkout() - POST
 router.post("/api/workouts", (req, res) => {
     db.Workout.create(req.body)
         .then(dbWorkout => {
@@ -116,7 +113,6 @@ router.post("/api/workouts", (req, res) => {
         });
 });
 
-// getWorkoutsInRange() - GET
 router.get("/api/workouts/range", (req, res) => {
     fetchWorkoutsWithExercises()
         .then(dbWorkout => {
@@ -126,7 +122,5 @@ router.get("/api/workouts/range", (req, res) => {
             sendRouteError(res, "GET /api/workouts/range", err);
         });
 });
-
-
 
 module.exports = router;

@@ -41,6 +41,9 @@ build/Release
 node_modules/
 jspm_packages/
 .DS_Store
+.DS_Store?
+**/.DS_Store
+Thumbs.db
 
 # TypeScript v1 declaration files
 typings/
@@ -72,6 +75,8 @@ typings/
 # dotenv environment variables file
 .env
 .env.test
+.env.local
+.env.*.local
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache

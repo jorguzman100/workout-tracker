@@ -12,7 +12,6 @@ const distanceInput = document.querySelector("#distance");
 const completeButton = document.querySelector("button.complete");
 const addButton = document.querySelector("button.add-another");
 const toast = document.querySelector("#toast");
-const newWorkout = document.querySelector(".new-workout")
 
 let workoutType = null;
 let shouldNavigateAway = false;
@@ -20,20 +19,12 @@ let shouldNavigateAway = false;
 async function initExercise() {
   let workout;
 
-  console.log('------------------------- In initExercise() -------------------------');
-  console.log('location.search.split("=")[1]: ', location.search.split("=")[1]);
-
   if (location.search.split("=")[1] === undefined) {
-    console.log('In if (undefined)');
     workout = await API.createWorkout();
-    console.log(workout);
   }
   if (workout) {
-    console.log('In if (workout)');
     location.search = "?id=" + workout._id;
-    console.log('location.search');
   }
-
 }
 
 initExercise();
@@ -128,9 +119,7 @@ async function handleFormSubmit(event) {
 function handleToastAnimationEnd() {
   toast.removeAttribute("class");
   if (shouldNavigateAway) {
-    
-    // The href property sets or returns the entire URL of the current page.
-    location.href = "/"; 
+    location.href = "/";
   }
 }
 
