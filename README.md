@@ -56,10 +56,9 @@ Workout Tracker is a full-stack fitness logging app for recording daily workouts
 
 ## 🚀 Live Demo
 
-![Deployment](https://img.shields.io/badge/Deployment-Not%20deployed%20yet-lightgrey?style=for-the-badge)
-[![GitHub](https://img.shields.io/badge/GitHub-Repo-181717?style=for-the-badge&logo=github)](https://github.com/jorguzman100/workout-tracker)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-WorkoutTracker-22c55e?style=for-the-badge)](https://workout-tracker-clbj.onrender.com/)
 
-No public deployment yet. Local run is ready now, and the app is set up to use environment variables later for deployment.
+[![Visit Portfolio](https://img.shields.io/badge/Visit%20My%20Portfolio-jorgeguzman.dev-22c55e?style=for-the-badge)](https://portfolio.jorgeguzman.dev/)
 
 ---
 
